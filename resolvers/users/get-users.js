@@ -1,8 +1,9 @@
-import { User } from "../../src/model/user.model.js"; // Модель замаа зөв шалга
+import { User } from "../../models/user.model1.js";
 
-export const getUsers = async (req, res) => {
+// 🧩 Хэрэглэгчдийн жагсаалт авах
+export const getUsers = async (_req, res) => {
   try {
-    const users = await User.find(); // MongoDB-оос бүх хэрэглэгчийг татна
+    const users = await User.find().sort({ createdAt: -1 }).lean();
     res.json(users);
   } catch (err) {
     console.error("❌ getUsers error:", err);

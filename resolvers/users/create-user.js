@@ -1,20 +1,20 @@
-// import { users } from "./get-users.js";
+import { User } from "../../models/user.model1.js";
 
-// export const createUser = (req, res) => {
-//   const newUser = req.body;
-//   users.push(newUser);
-//   res.send("New user added!");
-// };
-import { User } from "../../src/model/user.model.js";
-
+// 🧩 Хэрэглэгч үүсгэх
 export const createUser = async (req, res) => {
   try {
-    const { username, email, phone } = req.body;
-    const user = new User({ username, email, phone });
-    await user.save();
-    res.status(201).json(user);
+    const { username, phoneNumber, email } = req.body;
+
+    // validation (жижигхэн шалгалт)
+    if (!username || !phoneNumber || !email) {
+      return res.status(400).json({ error: "All fields are required" });
+    }
+
+    const newUser = await User.create({ username, phoneNumber, email });
+
+    res.status(201).json(newUser);
   } catch (err) {
-    console.error("createUser error", err);
-    res.status(500).json({ error: "Internal server error" });
+    console.error("❌ createUser error:", err);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };

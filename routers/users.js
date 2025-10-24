@@ -1,23 +1,8 @@
-// import express from "express";
-// import { getUsers } from "../resolvers/users/get-users.js";
-// import { createUser } from "../resolvers/users/create-user.js";
-// import { updatedUser } from "../resolvers/users/edit-users.js";
+const userRouter = express.Router();
 
-// export const router = express.Router();
+userRouter.post("/", createUser);
+userRouter.get("/", getUsers);
+userRouter.delete("/:id", deleteUserById);
+userRouter.put("/:id", editUser);
 
-// router.get("/", getUsers);
-// router.post("/", createUser);
-// router.put("/", updateUser);
-// router.delete("/:id", deleteUser);
-import express from "express";
-import { getUsers } from "../resolvers/users/get-users.js";
-import { createUser } from "../resolvers/users/create-user.js";
-import { editUser } from "../resolvers/users/edit-user.js";
-import { deleteUserById } from "../resolvers/users/delete-user-by-id.js";
-
-export const router = express.Router();
-
-router.get("/", getUsers);
-router.post("/", createUser);
-router.put("/:id", editUser);
-router.delete("/:id", deleteUserById);
+export default userRouter; // ✅

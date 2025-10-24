@@ -1,6 +1,5 @@
 import express from "express";
 import mongoose from "mongoose";
-import { router } from "./routers/users.js";
 
 const app = express();
 const PORT = 8000;
@@ -13,10 +12,10 @@ mongoose
   .catch((err) => console.error("❌ Connection error:", err));
 
 app.use(express.json());
-// router okey?----------
-app.use("/users", router);
+app.use("/users", userRouter);
 
 //server alive?-------
 app.listen(PORT, () => {
-  console.log(`✅aslaa http://localhost:${PORT}`);
+  console.log(`✅server starting http://localhost:${PORT}`);
 });
+d;
