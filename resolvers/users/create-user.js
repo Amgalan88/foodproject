@@ -1,4 +1,4 @@
-import { User } from "../../models/user.model1.js";
+import { Users } from "../../models/user.model1.js";
 
 // 🧩 Хэрэглэгч үүсгэх
 export const createUser = async (req, res) => {
@@ -10,7 +10,7 @@ export const createUser = async (req, res) => {
       return res.status(400).json({ error: "All fields are required" });
     }
 
-    const newUser = await User.create({ username, phoneNumber, email });
+    const newUser = await Users.create({ username, phoneNumber, email });
 
     res.status(201).json(newUser);
   } catch (err) {

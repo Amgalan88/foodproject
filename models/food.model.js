@@ -10,8 +10,7 @@ const foodSchema = new mongoose.Schema({
   category: {
     type: Schema.Types.ObjectId,
     ref: "Category", // ← энэ бол холбоосын нэр (Category model-ийн нэртэй яг адил байх ёстой)
-    required: true,
   },
 });
 
-export const Food = mongoose.model("Food", foodSchema);
+export const foods = mongoose.model("Food", foodSchema);

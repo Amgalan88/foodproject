@@ -1,8 +1,8 @@
-import { Food } from "../../models/food.model.js";
+import { foods } from "../../models/food.model.js";
 
 export const getFoods = async (req, res) => {
   try {
-    const food = await Food.find().populate("category");
+    const food = await foods.find().populate("Category");
     res.json(food);
   } catch (err) {
     console.error("❌ getUsers error:", err);

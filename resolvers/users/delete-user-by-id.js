@@ -1,4 +1,4 @@
-import { User } from "../../models/user.model1.js";
+import { Users } from "../../models/user.model1.js";
 
 import mongoose from "mongoose";
 
@@ -8,9 +8,9 @@ export const deleteUserById = async (req, res) => {
 
     let deleted;
     if (mongoose.isValidObjectId(id)) {
-      deleted = await User.findByIdAndDelete(id);
+      deleted = await Users.findByIdAndDelete(id);
     } else {
-      deleted = await User.findOneAndDelete({ _id: id });
+      deleted = await Users.findOneAndDelete({ _id: id });
     }
 
     if (!deleted) return res.status(404).json({ error: "User not found" });

@@ -1,8 +1,8 @@
 import express from "express";
-import { CreateNewFoodCategory } from "../resolvers/category.js/create-category.js";
-import { getcategory } from "../resolvers/category.js/get-category.js";
+import { getCategory } from "../resolvers/category/get-category.js";
+import { createCategory } from "../resolvers/category/create-category.js";
 
 export const categoryRouter = express.Router();
 
-categoryRouter.post("/", CreateNewFoodCategory);
-categoryRouter.get("/", getcategory);
+categoryRouter.get("/", getCategory);
+categoryRouter.post("/", createCategory);

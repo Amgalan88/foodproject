@@ -29,4 +29,4 @@ const orderSchema = new Schema(
 );
 
 // ✅ Давхар бүртгэлээс хамгаалах (overwrite error сэргийлнэ)
-export const Order = mongoose.models.Order || model("Order", orderSchema);
+export const Orders = mongoose.models.Order || model("Order", orderSchema);

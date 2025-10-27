@@ -1,11 +1,11 @@
-import { User } from "../../models/user.model1.js";
+import { Users } from "../../models/user.model1.js";
 
 export const editUser = async (req, res) => {
   try {
     const { id } = req.params;
     const { editUser } = req.body;
 
-    const updated = await User.findByIdAndUpdate(
+    const updated = await Users.findByIdAndUpdate(
       id,
       { editUser },
       { new: true }

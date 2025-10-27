@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
-const { Schema, model } = mongoose;
+const { Schema } = mongoose;
 
-const foodcategorySchema = new mongoose.Schema({
-  category: { type: String },
-  createdAt: { type: Date },
-  updatedAt: { type: Date },
-});
+const CategorySchema = new Schema(
+  { category: { type: String, required: true, trim: true, unique: true } },
+  { timestamps: true }
+);
 
-export const category = mongoose.model("Food", foodcategorySchema);
+// 🔑 Нэр нь "Category" БАЙХ ЁСТОЙ
+export const Category =
+  mongoose.models.Category || mongoose.model("Category", CategorySchema);

@@ -1,8 +1,8 @@
-import { Order } from "../../models/Order.model.js";
+import { Orders } from "../../models/Order.model.js";
 
 export const getOrder = async (_req, res) => {
   try {
-    const orders = await Order.find()
+    const orders = await Orders.find()
       .populate({ path: "user" }) // ✅ populate by field name
       .populate({
         path: "foodOrderedItems.food",
